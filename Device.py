@@ -100,7 +100,7 @@ contact = {
     }
 
 Resp = dev.upload_a_device_addressbook(contacts=contact)
-print(Resp)
+
 {'result': {'user_access_token': 'UATabb5d109cccc493e8c8430a415c91c8c'},
  'message': 'success',
  'status': 0,

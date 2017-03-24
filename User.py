@@ -23,8 +23,8 @@ class User:
         url = Constants.BASE_URL + 'domains/users/accesstokens'
         response = requests.get(url=url,
                                 params={'key': self.api_key, 'domain_api_secret': self.api_secret, 'user_id': user_id})
-        json_obj=response.json()
-        self.user_access_token=json_obj["result"]["user_access_token"]
+        json_obj = response.json()
+        self.user_access_token = json_obj["result"]["user_access_token"]
         if give_json:
             return json_obj
         else:
@@ -42,8 +42,10 @@ class User:
         url = Constants.BASE_URL + 'domains/users/accesstokens'
         response = requests.get(url=url,
                                 params={'key': self.api_key, 'user_id': user_id, 'user_password': user_password})
+        json_obj = response.json()
+        self.user_access_token = json_obj["result"]["user_access_token"]
         if give_json:
-            return response.json()
+            return response
         else:
             return response.text
 
@@ -212,3 +214,8 @@ class User:
             return response.json()
         else:
             return response.text
+
+#obj = User('DAK681759e27de4495f9085468bc44e6118', 'DASb0c21ef306f44f02912354b71627de9e')
+#response = obj.get_user_access_token('user1', True)
+
+#print(response["result"]["user_access_token"])
